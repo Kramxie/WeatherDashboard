@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main container for the entire app -->
+    <div class="container">
+        <!-- Header section with title -->
+        <header>
+            <h1>🌤️ Weather Dashboard</h1>
+            <p class="subtitle">Get real-time weather information for any city</p>
+        </header>
+
+        <!-- Search section where users can enter city name -->
+        <div class="search-container">
+            <input 
+                type="text" 
+                id="cityInput" 
+                placeholder="Enter city name..." 
+                class="search-input"
+            >
+            <button id="searchBtn" class="search-btn">Search</button>
+        </div>
+
+        <!-- Error message display (hidden by default) -->
+        <div id="errorMessage" class="error-message"></div>
+
+        <!-- Loading spinner (hidden by default) -->
+        <div id="loadingSpinner" class="loading-spinner">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Current weather section -->
+        <div id="currentWeather" class="current-weather">
+            <!-- Weather icon and main temperature -->
+            <div class="weather-main">
+                <img id="weatherIcon" src="" alt="Weather icon" class="weather-icon">
+                <div class="temperature-container">
+                    <h2 id="cityName">--</h2>
+                    <p id="currentDate" class="current-date">--</p>
+                    <div class="temperature">
+                        <span id="temp">--</span>
+                        <span class="temp-unit">°C</span>
+                    </div>
+                    <p id="weatherDescription" class="weather-description">--</p>
+                </div>
+            </div>
+
+            <!-- Weather details grid (humidity, wind speed, etc.) -->
+            <div class="weather-details">
+                <div class="detail-item">
+                    <span class="detail-icon">💧</span>
+                    <div class="detail-info">
+                        <p class="detail-label">Humidity</p>
+                        <p id="humidity" class="detail-value">--%</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">💨</span>
+                    <div class="detail-info">
+                        <p class="detail-label">Wind Speed</p>
+                        <p id="windSpeed" class="detail-value">-- m/s</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">🌡️</span>
+                    <div class="detail-info">
+                        <p class="detail-label">Feels Like</p>
+                        <p id="feelsLike" class="detail-value">--°C</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">🔽</span>
+                    <div class="detail-info">
+                        <p class="detail-label">Pressure</p>
+                        <p id="pressure" class="detail-value">-- hPa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3-day forecast section -->
+        <div id="forecastSection" class="forecast-section">
+            <h3 class="forecast-title">3-Day Forecast</h3>
+            <div id="forecastContainer" class="forecast-container">
+                <!-- Forecast cards will be dynamically added here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
