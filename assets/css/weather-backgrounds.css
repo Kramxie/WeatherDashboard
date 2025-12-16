@@ -1,0 +1,395 @@
+/* ===== DYNAMIC WEATHER BACKGROUND ANIMATIONS ===== */
+/* Real animated weather effects based on actual conditions */
+
+/* ===== BASE SETUP ===== */
+.weather-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    transition: background 1s ease;
+}
+
+/* ===== RAIN ANIMATION ===== */
+.rain-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.rain {
+    position: absolute;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(transparent, rgba(174, 194, 224, 0.8), rgba(174, 194, 224, 0.4));
+    animation: rainFall linear infinite;
+}
+
+@keyframes rainFall {
+    0% {
+        transform: translateY(-100px) rotate(15deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(15deg);
+        opacity: 0;
+    }
+}
+
+/* Heavy rain splash effect */
+.rain-splash {
+    position: absolute;
+    bottom: 0;
+    width: 8px;
+    height: 8px;
+    background: rgba(174, 194, 224, 0.6);
+    border-radius: 50%;
+    animation: splash 0.5s ease-out infinite;
+}
+
+@keyframes splash {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* ===== SNOW ANIMATION ===== */
+.snow-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    color: white;
+    font-size: 1rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    animation: snowFall linear infinite;
+    opacity: 0;
+}
+
+@keyframes snowFall {
+    0% {
+        transform: translateY(-10px) rotate(0deg) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg) translateX(50px);
+        opacity: 0;
+    }
+}
+
+/* ===== SUNNY ANIMATION ===== */
+.sunny-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sun {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #FFD700 0%, #FFA500 50%, transparent 70%);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 60px 30px rgba(255, 215, 0, 0.4),
+        0 0 100px 60px rgba(255, 165, 0, 0.2),
+        0 0 140px 90px rgba(255, 140, 0, 0.1);
+    animation: sunPulse 4s ease-in-out infinite;
+}
+
+@keyframes sunPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 0 60px 30px rgba(255, 215, 0, 0.4),
+            0 0 100px 60px rgba(255, 165, 0, 0.2),
+            0 0 140px 90px rgba(255, 140, 0, 0.1);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 
+            0 0 80px 40px rgba(255, 215, 0, 0.5),
+            0 0 120px 80px rgba(255, 165, 0, 0.3),
+            0 0 160px 110px rgba(255, 140, 0, 0.15);
+    }
+}
+
+/* Sun rays */
+.sun-rays {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    width: 200px;
+    height: 200px;
+    transform: translate(40px, -40px);
+}
+
+.ray {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 100px;
+    background: linear-gradient(rgba(255, 215, 0, 0.6), transparent);
+    transform-origin: top center;
+    animation: rayRotate 20s linear infinite;
+}
+
+@keyframes rayRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Floating light particles for sunny day */
+.light-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 200, 0.8);
+    border-radius: 50%;
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-10vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* ===== CLOUDY ANIMATION ===== */
+.clouds-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: cloudMove linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+
+@keyframes cloudMove {
+    0% {
+        transform: translateX(-200px);
+    }
+    100% {
+        transform: translateX(calc(100vw + 200px));
+    }
+}
+
+/* ===== THUNDERSTORM ANIMATION ===== */
+.storm-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.lightning {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    animation: lightningFlash 5s infinite;
+    pointer-events: none;
+}
+
+@keyframes lightningFlash {
+    0%, 89%, 91%, 93%, 95%, 97%, 100% {
+        background: rgba(255, 255, 255, 0);
+    }
+    90% {
+        background: rgba(255, 255, 255, 0.8);
+    }
+    92% {
+        background: rgba(255, 255, 255, 0);
+    }
+    94% {
+        background: rgba(255, 255, 255, 0.5);
+    }
+    96% {
+        background: rgba(255, 255, 255, 0);
+    }
+}
+
+.lightning-bolt {
+    position: absolute;
+    top: 0;
+    width: 4px;
+    height: 0;
+    background: linear-gradient(to bottom, #fff, #87CEEB);
+    filter: drop-shadow(0 0 10px #fff) drop-shadow(0 0 20px #87CEEB);
+    animation: boltStrike 5s infinite;
+    clip-path: polygon(50% 0%, 40% 40%, 70% 40%, 30% 100%, 45% 50%, 20% 50%);
+}
+
+@keyframes boltStrike {
+    0%, 89%, 100% {
+        opacity: 0;
+        height: 0;
+    }
+    90%, 92% {
+        opacity: 1;
+        height: 300px;
+    }
+    93% {
+        opacity: 0;
+    }
+    94%, 96% {
+        opacity: 0.8;
+        height: 200px;
+    }
+    97% {
+        opacity: 0;
+    }
+}
+
+/* ===== MIST/FOG ANIMATION ===== */
+.mist-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.mist-layer {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 20%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.1) 80%,
+        transparent 100%
+    );
+    animation: mistDrift linear infinite;
+}
+
+@keyframes mistDrift {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* ===== DRIZZLE ANIMATION (Light rain) ===== */
+.drizzle {
+    position: absolute;
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(transparent, rgba(174, 194, 224, 0.5));
+    animation: drizzleFall linear infinite;
+}
+
+@keyframes drizzleFall {
+    0% {
+        transform: translateY(-50px) rotate(10deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(100vh) rotate(10deg);
+        opacity: 0;
+    }
+}
+
+/* ===== HAZE ANIMATION ===== */
+.haze-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(150, 140, 120, 0.3);
+    animation: hazeShift 10s ease-in-out infinite;
+}
+
+@keyframes hazeShift {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.haze-particle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(150, 140, 120, 0.3), transparent);
+    border-radius: 50%;
+    animation: hazeFloat 15s ease-in-out infinite;
+}
+
+@keyframes hazeFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(50px, -30px) scale(1.2);
+    }
+    50% {
+        transform: translate(100px, 0) scale(1);
+    }
+    75% {
+        transform: translate(50px, 30px) scale(0.8);
+    }
+}

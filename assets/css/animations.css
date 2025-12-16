@@ -1,0 +1,721 @@
+/* ===== ENHANCED ANIMATIONS FOR WEATHER DASHBOARD ===== */
+/* Beautiful, smooth animations to make the app more engaging */
+
+/* ===== KEYFRAME ANIMATIONS ===== */
+
+/* Fade in from top */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in from bottom */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in from left */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade in from right */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scale up entrance */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Bounce effect */
+@keyframes bounce {
+    0%, 20%, 53%, 100% {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translateY(0);
+    }
+    40%, 43% {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translateY(-20px);
+    }
+    70% {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translateY(-10px);
+    }
+    80% {
+        transform: translateY(0);
+    }
+    90% {
+        transform: translateY(-4px);
+    }
+}
+
+/* Pulse glow effect */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+    }
+    70% {
+        transform: scale(1.02);
+        box-shadow: 0 0 0 15px rgba(102, 126, 234, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+    }
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Float animation for icons */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Spin animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Shake animation for errors */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Gradient shift animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Rain drop animation */
+@keyframes rainDrop {
+    0% {
+        transform: translateY(-100vh) rotate(15deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(15deg);
+        opacity: 0;
+    }
+}
+
+/* Snow fall animation */
+@keyframes snowFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Cloud float animation */
+@keyframes cloudFloat {
+    0%, 100% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(10px) translateY(-5px);
+    }
+    50% {
+        transform: translateX(20px) translateY(0);
+    }
+    75% {
+        transform: translateX(10px) translateY(5px);
+    }
+}
+
+/* Sun rays rotation */
+@keyframes sunRays {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Lightning flash */
+@keyframes lightning {
+    0%, 89%, 91%, 93%, 95%, 97%, 100% {
+        opacity: 0;
+    }
+    90%, 92%, 94%, 96% {
+        opacity: 1;
+    }
+}
+
+/* Ripple effect */
+@keyframes ripple {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* Glow pulse */
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(102, 126, 234, 0.6);
+    }
+}
+
+/* Text shimmer */
+@keyframes textShimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+/* ===== ANIMATED BACKGROUND ===== */
+body {
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+    overflow-x: hidden;
+}
+
+/* Weather particles container */
+.weather-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Rain drops */
+.rain-drop {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.6));
+    animation: rainDrop 1s linear infinite;
+}
+
+/* Snow flakes */
+.snow-flake {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: snowFall 5s linear infinite;
+}
+
+/* ===== HEADER ANIMATIONS ===== */
+header {
+    animation: fadeInDown 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+header h1 {
+    display: inline-block;
+    background: linear-gradient(90deg, #fff, #f0f0f0, #fff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: textShimmer 3s linear infinite;
+}
+
+/* ===== SEARCH BAR ANIMATIONS ===== */
+.search-container {
+    animation: fadeInUp 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s both;
+}
+
+.search-input {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-input:focus {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.search-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.search-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.search-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.search-btn:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* ===== CONTROL BUTTONS ANIMATIONS ===== */
+.control-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.control-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(102, 126, 234, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s;
+}
+
+.control-btn:hover::after {
+    transform: translate(-50%, -50%) scale(20);
+    opacity: 0;
+}
+
+.control-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== WEATHER CARD ANIMATIONS ===== */
+.current-weather {
+    animation: scaleIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 0.3s ease;
+}
+
+.current-weather:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Floating weather icon */
+.weather-icon {
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.weather-icon:hover {
+    animation-play-state: paused;
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Temperature animation */
+.temperature {
+    animation: fadeInLeft 0.8s ease 0.3s both;
+    transition: all 0.3s ease;
+}
+
+.temperature:hover {
+    transform: scale(1.05);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Weather details staggered animation */
+.detail-item {
+    animation: fadeInUp 0.5s ease both;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.detail-item:nth-child(1) { animation-delay: 0.1s; }
+.detail-item:nth-child(2) { animation-delay: 0.2s; }
+.detail-item:nth-child(3) { animation-delay: 0.3s; }
+.detail-item:nth-child(4) { animation-delay: 0.4s; }
+.detail-item:nth-child(5) { animation-delay: 0.5s; }
+.detail-item:nth-child(6) { animation-delay: 0.6s; }
+.detail-item:nth-child(7) { animation-delay: 0.7s; }
+.detail-item:nth-child(8) { animation-delay: 0.8s; }
+
+.detail-item:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+}
+
+/* Detail icon bounce on hover */
+.detail-icon {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.detail-item:hover .detail-icon {
+    animation: bounce 0.6s ease;
+}
+
+/* ===== FORECAST CARDS ANIMATIONS ===== */
+.forecast-card {
+    animation: fadeInUp 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+}
+
+.forecast-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.forecast-card:hover::before {
+    left: 100%;
+}
+
+.forecast-card:nth-child(1) { animation-delay: 0.1s; }
+.forecast-card:nth-child(2) { animation-delay: 0.2s; }
+.forecast-card:nth-child(3) { animation-delay: 0.3s; }
+
+.forecast-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.forecast-icon {
+    transition: transform 0.3s ease;
+}
+
+.forecast-card:hover .forecast-icon {
+    animation: bounce 0.6s ease;
+    transform: scale(1.2);
+}
+
+/* ===== HOURLY CARDS ANIMATIONS ===== */
+.hourly-card {
+    animation: scaleIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.hourly-card:nth-child(1) { animation-delay: 0.05s; }
+.hourly-card:nth-child(2) { animation-delay: 0.1s; }
+.hourly-card:nth-child(3) { animation-delay: 0.15s; }
+.hourly-card:nth-child(4) { animation-delay: 0.2s; }
+.hourly-card:nth-child(5) { animation-delay: 0.25s; }
+.hourly-card:nth-child(6) { animation-delay: 0.3s; }
+
+.hourly-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.hourly-icon {
+    transition: transform 0.3s ease;
+}
+
+.hourly-card:hover .hourly-icon {
+    transform: scale(1.3) rotate(10deg);
+}
+
+/* ===== CHIPS ANIMATIONS ===== */
+.search-chip,
+.favorite-chip {
+    animation: fadeInUp 0.4s ease both;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+}
+
+.search-chip:nth-child(1) { animation-delay: 0.1s; }
+.search-chip:nth-child(2) { animation-delay: 0.15s; }
+.search-chip:nth-child(3) { animation-delay: 0.2s; }
+.search-chip:nth-child(4) { animation-delay: 0.25s; }
+.search-chip:nth-child(5) { animation-delay: 0.3s; }
+
+.search-chip:hover,
+.favorite-chip:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.search-chip:active,
+.favorite-chip:active {
+    transform: scale(0.95);
+}
+
+/* ===== FAVORITE BUTTON ANIMATION ===== */
+.favorite-btn {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.favorite-btn:hover {
+    transform: scale(1.3) rotate(15deg);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+}
+
+.favorite-btn:active {
+    transform: scale(1.5);
+}
+
+/* ===== LOADING ANIMATION ===== */
+.loading-spinner {
+    animation: fadeIn 0.3s ease;
+}
+
+.spinner {
+    animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+/* Skeleton loading */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.1) 25%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.1) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+}
+
+/* ===== ERROR MESSAGE ANIMATION ===== */
+.error-message.show {
+    animation: shake 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), fadeInDown 0.3s ease;
+}
+
+/* ===== QUICK ACCESS PANEL ANIMATION ===== */
+.quick-access {
+    animation: fadeInUp 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s both;
+}
+
+/* ===== SECTION TITLES ANIMATION ===== */
+.forecast-title,
+.hourly-title {
+    animation: fadeInLeft 0.6s ease 0.2s both;
+    position: relative;
+}
+
+.forecast-title::after,
+.hourly-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.forecast-section:hover .forecast-title::after,
+.hourly-forecast-section:hover .hourly-title::after {
+    width: 100px;
+}
+
+/* ===== DARK MODE TRANSITION ===== */
+body.dark-mode {
+    transition: all 0.5s ease;
+}
+
+body.dark-mode .current-weather,
+body.dark-mode .forecast-card,
+body.dark-mode .hourly-card {
+    transition: all 0.5s ease;
+}
+
+/* ===== SCROLL ANIMATIONS (Intersection Observer compatible) ===== */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+    .weather-icon {
+        animation: float 4s ease-in-out infinite;
+    }
+    
+    .forecast-card:hover,
+    .hourly-card:hover {
+        transform: translateY(-5px) scale(1.02);
+    }
+    
+    .detail-item:hover {
+        transform: translateY(-5px) scale(1.02);
+    }
+}
+
+/* ===== EXTRA: GLASSMORPHISM EFFECT ===== */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ===== EXTRA: NEON GLOW EFFECT ===== */
+.neon-glow {
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* ===== EXTRA: GRADIENT TEXT ===== */
+.gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===== TYPEWRITER EFFECT CLASS ===== */
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid;
+    white-space: nowrap;
+    animation: 
+        typing 3s steps(30) forwards,
+        blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

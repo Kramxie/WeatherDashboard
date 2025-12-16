@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get real-time weather information with hourly forecasts, search history, and more">
+    <title>Weather Dashboard - Real-time Weather Information</title>
+    <!-- Main styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Animation styles -->
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <!-- Weather background animation styles -->
+    <link rel="stylesheet" href="assets/css/weather-backgrounds.css">
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Weather particles container (for rain/snow effects) -->
+    <div id="weatherParticles" class="weather-particles"></div>
+    
+    <!-- Main container -->
+    <div class="container">
+        <!-- Header section -->
+        <header>
+            <h1>🌤️ Weather Dashboard</h1>
+            <p class="subtitle">Get real-time weather information for any city worldwide</p>
+        </header>
+
+        <!-- Control buttons (geolocation, unit toggle, dark mode) -->
+        <div class="controls">
+            <button id="locationBtn" class="control-btn" title="Get weather for your location">
+                📍 My Location
+            </button>
+            <button id="unitToggle" class="control-btn" title="Toggle temperature unit">
+                °C
+            </button>
+            <label class="toggle-switch" title="Toggle dark mode">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <!-- Search section -->
+        <div class="search-container">
+            <input 
+                type="text" 
+                id="cityInput" 
+                placeholder="Enter city name..." 
+                class="search-input"
+                autocomplete="off"
+            >
+            <button id="searchBtn" class="search-btn">Search</button>
+        </div>
+
+        <!-- Recent searches section -->
+        <div id="quickAccessSection" class="quick-access">
+            <div style="margin-bottom: 15px;">
+                <h3>⏱️ Recent Searches</h3>
+                <div id="recentSearches"></div>
+            </div>
+            <div>
+                <h3>⭐ Favorite Cities</h3>
+                <div id="favoriteCities"></div>
+            </div>
+        </div>
+
+        <!-- Error message -->
+        <div id="errorMessage" class="error-message"></div>
+
+        <!-- Loading spinner -->
+        <div id="loadingSpinner" class="loading-spinner">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Current weather section -->
+        <div id="currentWeather" class="current-weather">
+            <!-- Main weather info with favorite button -->
+            <div class="weather-main">
+                <img id="weatherIcon" src="" alt="Weather icon" class="weather-icon">
+                <div class="temperature-container">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <h2 id="cityName">--</h2>
+                        <button id="favoriteBtn" class="favorite-btn" title="Add to favorites">☆</button>
+                    </div>
+                    <p id="currentDate" class="current-date">--</p>
+                    <div class="temperature">
+                        <span id="temp">--</span>
+                        <span id="tempUnit" class="temp-unit">°C</span>
+                    </div>
+                    <p id="weatherDescription" class="weather-description">--</p>
+                </div>
+            </div>
+
+            <!-- Weather details grid -->
+            <div class="weather-details">
+                <div class="detail-item">
+                    <span class="detail-icon">💧</span>
+                    <div class="detail-info">
+                        <p class="detail-label">Humidity</p>
+                        <p id="humidity" class="detail-value">--%</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">💨</span>
+                    <div class="detail-info">
+                        <p class="detail-label">Wind Speed</p>
+                        <p id="windSpeed" class="detail-value">-- m/s</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">🌡️</span>
+                    <div class="detail-info">
+                        <p class="detail-label">Feels Like</p>
+                        <p id="feelsLike" class="detail-value">--°C</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">🔽</span>
+                    <div class="detail-info">
+                        <p class="detail-label">Pressure</p>
+                        <p id="pressure" class="detail-value">-- hPa</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional weather details -->
+            <div class="weather-extra-details">
+                <div class="detail-item">
+                    <span class="detail-icon">👁️</span>
+                    <div class="detail-info">
+                        <p class="detail-label">Visibility</p>
+                        <p id="visibility" class="detail-value">-- km</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">🌅</span>
+                    <div class="detail-info">
+                        <p class="detail-label">Sunrise</p>
+                        <p id="sunrise" class="detail-value">--:--</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">🌇</span>
+                    <div class="detail-info">
+                        <p class="detail-label">Sunset</p>
+                        <p id="sunset" class="detail-value">--:--</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-icon">☀️</span>
+                    <div class="detail-info">
+                        <p class="detail-label">UV Index</p>
+                        <p id="uvIndex" class="detail-value">--</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hourly forecast section (NEW FEATURE) -->
+        <div id="hourlyForecastSection" class="hourly-forecast-section">
+            <h3 class="hourly-title">Hourly Forecast</h3>
+            <div id="hourlyContainer" class="hourly-container">
+                <!-- Hourly cards will be added here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- 3-day forecast section -->
+        <div id="forecastSection" class="forecast-section">
+            <h3 class="forecast-title">3-Day Forecast</h3>
+            <div id="forecastContainer" class="forecast-container">
+                <!-- Forecast cards will be added here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript files - load in correct order -->
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/weather-background.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/animations.js"></script>
+    
+    <!-- Show quick access after page loads -->
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('quickAccessSection').classList.add('show');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
